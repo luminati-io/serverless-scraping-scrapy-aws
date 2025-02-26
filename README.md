@@ -2,7 +2,7 @@
 
 [![Promo](https://github.com/luminati-io/LinkedIn-Scraper/raw/main/Proxies%20and%20scrapers%20GitHub%20bonus%20banner.png)](https://brightdata.com/) 
 
-This guide explains how to write a Scrapy Spider, deploy it to AWS Lambda, and store scraped data in an S3 bucket.
+This guide explains how to write a Scrapy Spider, deploy it to AWS Lambda, and store scraped data in an S3 bucket. Interested in a faster and more reliable solution? [Bright Data's Serverless Functions](https://brightdata.com/products/web-scraper/functions) provides 70+ pre-built JavaScript templates, a cloud-based IDE, and powerful unblocking capabilities. Pricing starting just at [$2.7/1,000 page loads](https://brightdata.com/pricing/web-scraper/functions), making it the perfect solution for web scraping.
 
 - [Prerequisites](#prerequisites)
 - [What is Serverless?](#what-is-serverless)
