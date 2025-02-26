@@ -40,27 +40,27 @@ Serverless architecture eliminates the need to manage servers by charging only f
 
 Log into your AWS account and create an S3 bucket. To do that, go to the [‘All services’](https://us-east-2.console.aws.amazon.com/console/services) page and scroll down.
 
-![A list of all AWS services](https://brightdata.com/wp-content/uploads/2024/12/image-108-1024x504.png)
+![A list of all AWS services](https://github.com/luminati-io/serverless-scraping-scrapy-aws/blob/main/images/image-108.png)
 
 Click on _S3_—the first option in the _Storage_ section.
 
-![The S3 storage service](https://brightdata.com/wp-content/uploads/2024/12/image-109.png)
+![The S3 storage service](https://github.com/luminati-io/serverless-scraping-scrapy-aws/blob/main/images/image-109.png)
 
 Next, click the _Create bucket_ button.
 
-![Creating a new S3 bucket](https://brightdata.com/wp-content/uploads/2024/12/image-110-1024x273.png)
+![Creating a new S3 bucket](https://github.com/luminati-io/serverless-scraping-scrapy-aws/blob/main/images/image-110.png)
 
 Give the bucket a name and choose your settings. For the purpose of following this guide, you can use default settings.
 
-![Naming the new S3 bucket and choosing your settings](https://brightdata.com/wp-content/uploads/2024/12/image-113-1024x305.png)
+![Naming the new S3 bucket and choosing your settings](https://github.com/luminati-io/serverless-scraping-scrapy-aws/blob/main/images/image-113.png)
 
 Click the _Create bucket_ button located in the bottom right corner of the page.
 
-![Creating the new S3 bucket](https://brightdata.com/wp-content/uploads/2024/12/image-111-1024x176.png)
+![Creating the new S3 bucket](https://github.com/luminati-io/serverless-scraping-scrapy-aws/blob/main/images/image-111.png)
 
 The newly created bucket will show up in the _Buckets_ tab under _Amazon S3_.
 
-![Clicking the create bucket button when the configuration is done](https://brightdata.com/wp-content/uploads/2024/12/image-112-1024x382.png)
+![Clicking the create bucket button when the configuration is done](https://github.com/luminati-io/serverless-scraping-scrapy-aws/blob/main/images/image-112.png)
 
 ### Setting Up Your Project
 
@@ -93,15 +93,15 @@ pip install scrapy
 
 Let's use [books.toscrape](https://books.toscrape.com/) as our target site. It’s an educational site devoted entirely to web scraping. Each book is an `article` with the class name, `product_pod`. We want to extract all of these elements from the page.
 
-![Inspecting one of the book in an article tag](https://brightdata.com/wp-content/uploads/2024/12/image-114-1024x579.png)
+![Inspecting one of the book in an article tag](https://github.com/luminati-io/serverless-scraping-scrapy-aws/blob/main/images/image-114.png)
 
 The title of each book is embedded within an `a` element which is nested inside of an `h3` element.
 
-![Inspecting the book title](https://brightdata.com/wp-content/uploads/2024/12/image-115.png)
+![Inspecting the book title](https://github.com/luminati-io/serverless-scraping-scrapy-aws/blob/main/images/image-115.png)
 
 Each price is embedded in a `p` which is nested inside of a `div`. It has a class name of `price_color`.
 
-![Inspecting the book price](https://brightdata.com/wp-content/uploads/2024/12/image-116.png)
+![Inspecting the book price](https://github.com/luminati-io/serverless-scraping-scrapy-aws/blob/main/images/image-116.png)
 
 ## Writing the Code
 
@@ -231,19 +231,19 @@ Once the ZIP file has been created, head on over to AWS Lambda and select _Crea
 
 Make sure to add give it permission to access your S3 Bucket.
 
-![Creating a new function](https://brightdata.com/wp-content/uploads/2024/12/image-117-1024x368.png)
+![Creating a new function](https://github.com/luminati-io/serverless-scraping-scrapy-aws/blob/main/images/image-117.png)
 
 Once you’ve created the function, select the _Upload from_ dropdown at the top right hand corner of the source tab.
 
-![Lambda upload from](https://brightdata.com/wp-content/uploads/2024/12/image-118-1024x109.png)
+![Lambda upload from](https://github.com/luminati-io/serverless-scraping-scrapy-aws/blob/main/images/image-118.png)
 
 Choose _.zip file_ and upload the ZIP file you created.
 
-![Uploading the created ZIP file](https://brightdata.com/wp-content/uploads/2024/12/image-119.png)
+![Uploading the created ZIP file](https://github.com/luminati-io/serverless-scraping-scrapy-aws/blob/main/images/image-119.png)
 
 Click the _test_ button and wait for your function to run. After it runs, check your S3 Bucket and you should have a new file, _books.json_.
 
-![The new books.json file in your S3 bucket](https://brightdata.com/wp-content/uploads/2024/12/image-120-1024x443.png)
+![The new books.json file in your S3 bucket](https://github.com/luminati-io/serverless-scraping-scrapy-aws/blob/main/images/image-120.png)
 
 ## Troubleshooting Tips
 
@@ -251,7 +251,7 @@ Click the _test_ button and wait for your function to run. After it runs, chec
 
 If you encounter an error stating that Scrapy isn’t found, include the following in your command array for `subprocess.run()`.
 
-![Adding a piece of code in the subprocess.run() function](https://brightdata.com/wp-content/uploads/2024/12/image-121.png)
+![Adding a piece of code in the subprocess.run() function](https://github.com/luminati-io/serverless-scraping-scrapy-aws/blob/main/images/image-121.png)
 
 ### General Dependency Issues
 
@@ -265,7 +265,7 @@ If this command outputs a different version than your Lambda function, change yo
 
 ### Handler Issues
 
-![The handler should match the function you wrote](https://brightdata.com/wp-content/uploads/2024/12/image-122-1024x155.png)
+![The handler should match the function you wrote](https://github.com/luminati-io/serverless-scraping-scrapy-aws/blob/main/images/image-122.png)
 
 Ensure your handler matches the function in `lambda_function.py`. For example, `lambda_function.handler` indicates that `lambda_function` is your file name and `handler` is the function name.
 
@@ -275,7 +275,7 @@ If you encounter permissions issues when storing output, add the required permis
 
 Click _Attach policies_.
 
-![Clicking on 'attach policies' in the Lambda function](https://brightdata.com/wp-content/uploads/2024/12/image-123.png)
+![Clicking on 'attach policies' in the Lambda function](https://github.com/luminati-io/serverless-scraping-scrapy-aws/blob/main/images/image-123.png)
 
 Select _AmazonS3FullAccess_.
 
